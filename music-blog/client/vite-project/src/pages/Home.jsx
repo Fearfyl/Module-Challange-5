@@ -23,20 +23,27 @@ import PostCard from '../components/PostCard'; // Adjust the path as needed
         }, []);
 
         // Render the home page
-        return (
-            <div>
-                <h1>Welcome to the Music Blog</h1>
-                <p>Discover the latest music trends and news.</p>
-                <Link to="/newposts">Create a New Post</Link>
-                <Link to="/postdetails">View Post Details</Link>
-                <Link to="/posts">View All Posts</Link>
-                <div>
+        eturn (
+            <div className="home">
+                <div className="home-content">
+                    <h1>Welcome to GreenSteps</h1>
+                    <p>Your one-stop shop for all things eco-friendly.</p>
+                  </div>
+                <div className="posts">
                     {posts.map((post) => (
-                        <PostCard key={post.id} post={post} />
+                        <PostCard key={post._id} post={post} />
                     ))}
                 </div>
+                <div className="new-post">
+                    <Link to="/newposts">
+                        <button>Create New Post</button>
+                    </Link>
+                </div>
+                <div className="contact-us" style={{ position: 'absolute', bottom: 0, left: 0 }}>
+                    <button onClick={handleContactUs}>Contact Us</button>
+                </div>
+    
             </div>
         );
     };
-
     export default Home;
